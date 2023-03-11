@@ -1,7 +1,35 @@
+body{
+    background-image: url("../images/background.jpg");
+}
+
 .center{
+    width: 50%;
     margin: 0 auto;
 }
 
 table, tr, td{
     border: 1px solid black;
+}
+
+p{
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+.photo{
+    display: block;
+    width: 30%;
+    margin: 0 auto;
+}
+
+.linkler
+{
+    width: 40%;
+    margin: 0 auto;
+}
+
+.logos{
+    width: 30%;
+    margin: 0 auto;
 }
