@@ -10,8 +10,8 @@ body{
 }
 
 .main{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
     height: 100vh;
 }
 
@@ -19,6 +19,7 @@ body{
     display: flex;
     justify-content: space-between;
     background-color: rgba(48, 165, 149, 0.2);
+    height: 50%;
 }
 
 .navbar-logo{
