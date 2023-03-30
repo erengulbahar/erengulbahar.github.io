@@ -15,6 +15,10 @@
             </a>
     
             <div class="nav-buttons">
+                <button id="click1" class="nav-button" onclick="Tikla()">Tıkla Buraya</button>
+                <button id="click2" class="nav-button" onclick="Tikla2(this)">Tıkla Buraya</button>
+                <button id="changeColour" class="nav-button" onclick="RenkDegistir()">Renk Değiştir</button>
+                <button id="mouseButton1" class="nav-button" onmouseover="FareUzerinde()" onmouseout="FareUzerindeDegil()">Fare Butonu</button>
                 <button class="nav-button">Home</button>
                 <button class="nav-button">Shop</button>
                 <button class="nav-button">Details</button>
@@ -35,6 +39,11 @@
                     <td>
                         <p>Mustafa Eren Gülbahar</p>
                     </td>
+
+                    <td>
+                        <input type="text" id="input">
+                        <button id="getData" onclick="inputAl()">Inputtan veri al</button>
+                    </td>
                 </tr>
         
                 <tr>
@@ -51,7 +60,7 @@
         
                 <tr>
                     <td>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam optio enim qui iure iste id impedit laborum totam tempore, distinctio debitis earum maxime quia ullam cumque nam dolorem. Veniam, assumenda.</p>
+                        <p id="about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam optio enim qui iure iste id impedit laborum totam tempore, distinctio debitis earum maxime quia ullam cumque nam dolorem. Veniam, assumenda.</p>
                     </td>
                 </tr>
             </table>
@@ -71,5 +80,47 @@
          <p>Marmara Üniversitesi Teknoloji Fakültesi &copy;</p>
         </div>
     </div>
+
+    <script>
+        function Tikla()
+        {
+            alert("Butona tıklanıldı.");
+        }
+
+        function Tikla2(element)
+        {
+            element.innerText = "Butona tıklanıldı.";
+        }
+
+        function RenkDegistir()
+        {
+            var element = document.getElementById("about");
+
+            element.style.color = "green";
+        }
+
+        function FareUzerinde()
+        {
+            var element = document.getElementById("about");
+
+            element.style.color = "purple";
+            element.innerText = "Fare uzerinde.";
+        }
+
+        function FareUzerindeDegil()
+        {
+            var element = document.getElementById("about");
+
+            element.style.color = "yellow";
+            element.innerText = "Fare uzerinde degil.";
+        }
+
+        function inputAl()
+        {
+            var element = document.getElementById("input");
+
+            alert(element.value);
+        }
+    </script>
 </body>
 </html>
