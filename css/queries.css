@@ -1,0 +1,139 @@
+/* Below 1344px (Smaller desktops) */
+@media (max-width: 84em) {
+    .first-section
+    {
+        height: 250vh;
+    }
+
+    .grid
+    {
+        margin-top: 5rem;
+    }
+
+    .grid li
+    {
+        width: 20rem;
+    }
+
+    .gridd li
+    {
+        width: 13rem;
+    }
+
+    #set-2
+    {
+        margin: 0 auto;
+        width: 50rem;
+        height: 25rem;
+    }
+}
+
+/* Below 1200px (Landscape tablets) */
+@media (max-width: 75em) {
+    .first-section
+    {
+        height: 260vh;
+    }
+
+    p
+    {
+        font-size: 1.2rem;
+    }
+
+    .grid
+    {
+        margin-top: 0;
+    }
+
+    .nav-button
+    {
+        font-size: 0.8rem;
+    }
+
+    .caption-photo {
+        display: inline-block;
+        position: relative;
+        margin: 10px;
+        overflow: hidden;
+        background: rgba(0,0,0,0.2);
+        transition: background 0.3s ease-in-out;
+        max-width: 13rem;
+    }
+    
+    .caption-photo:hover {
+        background: rgba(0,0,0,0);
+    }
+    
+    .caption-photo img {
+        display: block;
+        max-width: 100%;
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .caption-photo:hover img {
+        transform: translateX(100%);
+    }
+    
+    .caption-photo::before,
+    .caption-photo::after {
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+        background: #cecece;
+        transform: translateX(-30%);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .caption-photo::before {
+        content: "Mustafa Eren Gülbahar";
+        left: 3.3rem;
+        height: 100%;
+        color: #05b19a;
+        font-size: 1.2rem;
+        font-weight: 300;
+    }
+    
+    .caption-photo::after {
+        content: "Marmara Üniversitesi Teknoloji Fakültesi";
+        top: 30%;
+        left: 3.3rem;
+        height: 70%;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+
+    .grid li
+    {
+        width: 15rem;
+    }
+
+    .gridd li
+    {
+        width: 10rem;
+    }
+
+    #set-2
+    {
+        margin: 0 auto;
+        width: 40rem;
+        height: 20rem;
+    }
+
+    .hi-icon
+    {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .hi-icon::after
+    {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .hi-icon::before
+    {
+        font-size: 2rem;
+        line-height: 4rem;
+    }
+  }

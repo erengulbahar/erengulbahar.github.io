@@ -45,6 +45,41 @@ body{
     cursor: pointer;
 }
 
+table, tr, td{
+    border: 1px solid rgb(189, 102, 102);
+	text-align: center;
+}
+
+.center{
+    width: 50%;
+    margin: 0 auto;
+}
+
+.input
+{
+	height: 3rem;
+}
+
+.input-field
+{
+	height: 1.5rem;
+	width: 20rem;
+}
+
+.input-button
+{
+	height: 2rem;
+	width: 10rem;
+	border-radius: 15px;
+	font-size: 1rem;
+}
+
+p{
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
 /*Create special button*/
 .btn-6d {
 	border: 2px dashed #226fbe;
@@ -53,21 +88,6 @@ body{
 .btn-6d:hover {
 	background: transparent;
 	color: #226fbe;
-}
-
-.center{
-    width: 50%;
-    margin: 0 auto;
-}
-
-table, tr, td{
-    border: 1px solid rgb(189, 102, 102);
-}
-
-p{
-    color: white;
-    text-align: center;
-    font-size: 20px;
 }
 
 /*Slide photo*/
@@ -309,7 +329,6 @@ p{
 
 .hi-icon:before {
 	font-family: 'ecoicon';
-	speak: none;
 	font-size: 48px;
 	line-height: 90px;
 	font-style: normal;
