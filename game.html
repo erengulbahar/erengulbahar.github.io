@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/game.css" />
+    <title>Apple Game</title>
+  </head>
+  <body>
+    <div class="score-nav">
+      <div class="statistics">
+        <p class="score">Score: <span id="score">0</span></p>
+        <p class="apple-rate">
+          Apple Rate: <span id="appleRate">0</span>&nbsp;<img
+            src="./images/apple.png"
+            alt="apple-score"
+            width="20"
+          />/sec
+        </p>
+      </div>
+      <div class="lives" id="lives"></div>
+    </div>
+
+    <section class="main-section">
+      <button class="start-button" onclick="startgame()" id="start-button">Start !</button>
+    </section>
+
+    <section class="main-section hidden" id="game-over">
+      <h1 class="game-over-text">Game Over!</h1>
+    </section>
+
+    <script>
+      let score = 0;
+      let lives = 3;
+      let spawnSpeed = 3000; // ms
+      let fallingSpeedCoefficient = 15;
+      let difficulyIncreaseSpeed = 1000; // ms
+      let initialAppleWidth = 9; // rem
+      let appleAmount = 0;
+      let gameEnded = false;
+
+      scoreText = document.getElementById("score");
+      scoreText.textContent = score;
+
+      rateText = document.getElementById("appleRate");
+
+      livesContainer = document.getElementById("lives");
+      for (i = 1; i <= lives; i++) {
+        heartImage = document.createElement("img");
+        heartImage.src = "./images/heart.png";
+        heartImage.style.width = "64px";
+        heartImage.id = "heart" + i;
+        livesContainer.appendChild(heartImage);
+      }
+
+      gameOverScreen = document.getElementById("game-over");
+
+      function startgame() {
+        buttonVisibility = document.getElementById("start-button");
+        buttonVisibility.style.display = "none";
+
+        spawnApples();
+        setInterval(increaseDifficulty, difficulyIncreaseSpeed); // the difficulty increases as the game goes on.
+      }
+
+      function spawnApples() {
+        spawnApple();
+        setTimeout(() => {
+          if (!gameEnded) {
+            spawnApples();
+          }
+        }, spawnSpeed);
+      }
+
+      function spawnApple() {
+        appleAmount++;
+        let isBomb = false;
+        if (spawnSpeed * (1 + Math.floor(Math.random() * 100)) <= 30000) {
+          isBomb = true;
+        }
+        const xAxis = initialAppleWidth + Math.random() * (document.body.clientWidth - initialAppleWidth);
+        const appleImage = document.createElement("img");
+        appleImage.src = `./images/${isBomb ? "appleBomb.png" : "apple.png"}`;
+        appleImage.id = "apple" + appleAmount;
+        let currentAppleWidth = initialAppleWidth;
+        if (spawnSpeed * (1 + Math.floor(Math.random() * 100)) <= 30000 && !isBomb) {
+          currentAppleWidth = initialAppleWidth * (0.4 + Math.random() * 0.6);
+        }
+        appleImage.style.width = currentAppleWidth + "rem";
+        appleImage.style.position = "absolute";
+        appleImage.style.cursor = "pointer";
+        appleImage.style.left = xAxis + "px";
+        document.body.appendChild(appleImage);
+        var interval = fallApple(appleImage, isBomb);
+        appleImage.onmousedown = () => clickApple(appleImage, interval, isBomb);
+      }
+
+      function fallApple(img, isBomb) {
+        let top = 60; // px
+        var interval = setInterval(() => {
+          img.style.top = top + "px";
+          top = top * 1.01;
+          if (top >= document.body.clientHeight) {
+            destroyApple(img);
+            clearInterval(interval);
+            if (!isBomb) loseLife();
+          }
+        }, fallingSpeedCoefficient);
+
+        return interval;
+      }
+
+      function destroyApple(img) {
+        img.remove();
+      }
+
+      function clickApple(img, interval, isBomb) {
+        if (isBomb) {
+          score--;
+          img.src = "./images/explode.png";
+          setTimeout(() => destroyApple(img), 500);
+          loseLife();
+        } else {
+          score++;
+          destroyApple(img);
+        }
+        scoreText.textContent = score;
+        clearInterval(interval);
+      }
+
+      function increaseDifficulty() {
+        spawnSpeed = spawnSpeed * 0.98;
+        fallingSpeedCoefficient = fallingSpeedCoefficient * 0.98;
+        console.log(
+          "current spawn speed: " + spawnSpeed,
+          "current falling speed coefficient: ",
+          fallingSpeedCoefficient
+        );
+        rateText.textContent = (1 / (spawnSpeed / 1000)).toFixed(3);
+      }
+
+      function loseLife() {
+        const heartImg = document.getElementById("heart" + lives);
+        livesContainer.removeChild(heartImg);
+        lives--;
+        if (lives <= 0) {
+          gameOver();
+        }
+      }
+
+      function gameOver() {
+        gameEnded = true;
+        gameOverScreen.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>

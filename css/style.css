@@ -45,6 +45,12 @@ body{
     cursor: pointer;
 }
 
+.game-button
+{
+	text-decoration: none;
+	color: black;
+}
+
 table, tr, td{
     border: 1px solid rgb(189, 102, 102);
 	text-align: center;

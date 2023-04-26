@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    position: relative;
+    background-image: url("../images/game-background.png");
+    height: 100vh;
+  }
+  
+  .score-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+    padding: 2rem;
+  }
+  
+  .statistics {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .score {
+    font-size: 4rem;
+  }
+  
+  .apple-rate {
+    font-size: 3rem;
+  }
+  
+  .main-section {
+    position: absolute;
+    width: max-content;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+  
+  .start-button {
+    width: 20rem;
+    height: 10rem;
+    font-size: 5rem;
+    background: rgb(95, 115, 182);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .start-button:hover {
+    background: rgb(78, 103, 187);
+    scale: 1.1;
+    transition: 0.3s;
+  }
+  
+  .lives {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .game-over-text {
+    font-size: 10rem;
+  }
+  
