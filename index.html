@@ -26,13 +26,13 @@
                 </a>
         
                 <div class="nav-buttons">
-                    <button id="click1" class="nav-button" onclick="Tikla()">Tıkla Buraya</button>
-                    <button id="click2" class="nav-button" onclick="Tikla2(this)">Tıkla Buraya</button>
+                    <button id="click1" class="nav-button" onclick="Tikla()">Tıkla Buraya 1</button>
+                    <button id="click2" class="nav-button" onclick="Tikla2(this)">Tıkla Buraya 2</button>
                     <button id="changeColour" class="nav-button" onclick="RenkDegistir()">Renk Değiştir</button>
                     <button id="mouseButton1" class="nav-button" onmouseover="FareUzerinde()" onmouseout="FareUzerindeDegil()">Fare Butonu</button>
-                    <button class="nav-button btn btn-6 btn-6d">Home</button>
+                    <button class="nav-button btn btn-6 btn-6d">Ana Sayfa</button>
                     <button class="nav-button">
-                        <a class="game-button" href="./game.html">Game</a>
+                        <a class="game-button" href="./game.html">Oyun</a>
                     </button>
                 </div>
             </div>
@@ -65,14 +65,14 @@
             
                     <tr>
                         <td>
-                            <p id="about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam optio enim qui iure iste id impedit laborum totam tempore, distinctio debitis earum maxime quia ullam cumque nam dolorem. Veniam, assumenda.</p>
+                            <p id="about">Merhaba! Ben Mustafa Eren Gülbahar. Marmara Üniversitesi Teknoloji Fakültesi Bilgisayar Mühendisliği bölümünde okumaktayım. Şu an aktif olarak 3. sınıftayım.</p>
                         </td>
                     </tr>
 
                     <tr>
                         <td class="input">
                             <input class="input-field" type="text" id="input">
-                            <button class="input-button" id="getData" onclick="inputAl()">Inputtan veri al</button>
+                            <button class="input-button" id="getData" onclick="inputAl()">Gönder</button>
                         </td>
                     </tr>
                 </table>
@@ -175,8 +175,8 @@
         {
             var element = document.getElementById("about");
 
-            element.style.color = "yellow";
-            element.innerText = "Fare uzerinde degil.";
+            element.style.color = "white";
+            element.innerText = "Merhaba! Ben Mustafa Eren Gülbahar. Marmara Üniversitesi Teknoloji Fakültesi Bilgisayar Mühendisliği bölümünde okumaktayım. Şu an aktif olarak 3. sınıftayım.";
         }
 
         function inputAl()
